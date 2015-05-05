@@ -1,34 +1,31 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use yii\grid\GridView;//yii'nin kütüphanesi veritabanında verileri çekip bootstrap teması ile bize gösterir
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\FakulteSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Fakulteler';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="fakulte-index">
 
-    <h1><?= Html::encode($this->title) //Buradaki encode tukarıda tanımladığımız this adında fakulteler başlığını getirir?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <h1><?= Html::encode($this->title) ?></h1>
+   
 
     <p>
-        <?= Html::a('Create Fakulte', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Yeni Fakulte', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([//burada veritabanına eklenen verileri incelemek için dataprovider ile verileri çağıroypruz
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,//filtermodel ilede verilerin içindearma yapabilmemiz için aramma motoru koyuyoruz
+        'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],// kayıtların başında 1 den n e kadar numaralandırır
+            ['class' => 'yii\grid\SerialColumn'],//
 
-            'fakulte_id',//kayıtları gösterirken ki kolonlarımız
+            'fakulte_id',
             'fakulte_adi',
 
-            ['class' => 'yii\grid\ActionColumn'],//buda contoller içerisindeki action düğmelerimizi gösterir
+            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

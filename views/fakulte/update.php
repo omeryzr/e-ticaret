@@ -2,18 +2,16 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Fakulte */
 
-$this->title = 'Update Fakulte: ' . ' ' . $model->fakulte_id;
-$this->params['breadcrumbs'][] = ['label' => 'Fakultes', 'url' => ['index']];
+$this->title = 'Fakulteleri Güncelle: ' . ' ' . $model->fakulte_id;
+$this->params['breadcrumbs'][] = ['label' => 'Fakulteler', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->fakulte_id, 'url' => ['view', 'id' => $model->fakulte_id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'güncelle';
 ?>
 <div class="fakulte-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+<!--_form dosyamızı çağırıp  -->
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
