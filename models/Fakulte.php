@@ -13,13 +13,13 @@ class Fakulte extends \yii\db\ActiveRecord{
 	}
 
 
-//veritabanını karakter uzunlukları
+//veritabanını sınıfı
 	public function rules(){
 
 
 		return[
-			[['fakulte_adi'],'required'],
-			[['fakulte_adi'],'string','max'=>45]
+			 [['fakulte_adi'], 'required'],//Not null
+            [['fakulte_adi'], 'string', 'max' => 45]//Varchar(45) veri tiplerini veritabanı modelimize uygun belirliyoruz.
 		];
 	}
 
@@ -33,12 +33,14 @@ class Fakulte extends \yii\db\ActiveRecord{
 		];
 	}
 
-	//Burada primary key olan fakulte_id bolum tablosunda foreign key olarak tanımlıyoruz.
-	public function getBolums(){
+	//Burada primary key olan fakulte_id bolum tablosunda foreign key olarak tanımlıyacak bir function yazılacak.Bolum modeli
+	//oluşturulduktan sonra uncomment yapılacak
+	/*public function getBolums(){
 
-			return $this=>hasMany(Bolum::className(),['fakulte_id'=>'fakulte_id']);
-
+		return $this->hasMany(Bolum::className(),['fakulte_fakulte_id'=>'fakulte_id']);
 	}
+*/
+	
 
 
 
